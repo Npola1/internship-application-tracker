@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@drawable/screen_background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="64dp" android:orientation="horizontal" android:gravity="center_vertical" android:paddingHorizontal="22dp">
+        <Button android:id="@+id/backButton" style="@style/TextButton" android:layout_width="wrap_content" android:layout_height="48dp" android:text="Back" android:drawableStart="@drawable/ic_back"/>
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:gravity="end" android:text="YOUR DOCUMENTS" style="@style/Eyebrow"/>
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:scrollbars="none">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="22dp" android:paddingTop="8dp" android:paddingBottom="28dp">
+            <TextView android:id="@+id/demoBanner" style="@style/DemoBanner" android:layout_marginBottom="14dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Your CV library" style="@style/TitleText"/>
+            <TextView android:id="@+id/cvLibraryDescription" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Keep the right version ready for every opportunity." android:textColor="@color/muted" android:textSize="13sp" android:layout_marginTop="7dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp" android:background="@drawable/card_bg" android:layout_marginTop="22dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ready for your next application" android:textColor="@color/ink" android:textSize="16sp" android:fontFamily="sans-serif-medium"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PDF, DOCX or TXT · Up to 10 MB per file" android:textColor="@color/muted" android:textSize="12sp" android:layout_marginTop="6dp"/>
+                <Button android:id="@+id/uploadButton" style="@style/PrimaryButton" android:layout_width="match_parent" android:layout_height="50dp" android:text="Upload CV" android:drawableStart="@drawable/ic_upload" android:layout_marginTop="16dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center_vertical" android:orientation="horizontal" android:layout_marginTop="16dp">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Saved documents" style="@style/SectionHeading"/>
+                <TextView android:id="@+id/cvCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 documents" android:textColor="@color/muted" android:textSize="12sp"/>
+            </LinearLayout>
+            <ProgressBar android:id="@+id/loading" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="3dp" android:indeterminate="true" android:visibility="gone"/>
+            <LinearLayout android:id="@+id/cvsContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

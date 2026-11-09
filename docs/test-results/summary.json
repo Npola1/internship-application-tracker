@@ -1,0 +1,738 @@
+{
+  "collectedAt": "2026-11-09T00:33:35.647655+00:00",
+  "overall": "PARTIAL",
+  "counts": {
+    "PASS": 134,
+    "BLOCKED": 1,
+    "NOT_RUN": 1
+  },
+  "results": [
+    {
+      "test": "app.tracker.AiTailorServiceTest.unknownAndMalformedErrorsDoNotExposeProviderBodiesOrAssumeACause",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTailorServiceTest.exhaustedCreditsExplainTheBillingActionInsteadOfSuggestingRetries",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTailorServiceTest.legacyAndUnspecifiedQuotaErrorsAskTheOwnerToCheckBillingAndLimits",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTailorServiceTest.specificSpendingAndUsageLimitsTakePrecedenceOverTheBroadQuotaType",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTailorServiceTest.temporaryRateLimitsSuggestWaitingWithoutClaimingTheBalanceIsEmpty",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTailorServiceTest.otherHttpErrorsKeepTheirStatusWithoutExposingProviderDetails",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTransportTest.transportFailureDoesNotPretendToGenerateOutput",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTransportTest.incompleteOrRefusedModelOutputIsNotReturnedAsASuccessfulCv",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTransportTest.actualRequestIncludesFactualPromptSourceJobPrivacyAndBoundedTimeout",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.AiTransportTest.httpBillingErrorsUseSafeReadableMessagesInsteadOfProviderSecrets",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.createReadUpdateDeletePreservesEveryApplicationFieldAndOriginalCv",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.everyRouteRequiresVerifiedIdentity",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.eachStatusCanBeStoredAndRetrieved(String)[1]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.eachStatusCanBeStoredAndRetrieved(String)[2]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.eachStatusCanBeStoredAndRetrieved(String)[3]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.eachStatusCanBeStoredAndRetrieved(String)[4]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.eachStatusCanBeStoredAndRetrieved(String)[5]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.eachStatusCanBeStoredAndRetrieved(String)[6]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.eachStatusCanBeStoredAndRetrieved(String)[7]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.malformedJsonAndUnsupportedMethodsHaveUsefulHttpStatuses",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.anotherUserCannotReadChangeDeleteOrAttachOwnedRecords",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.base64PayloadIsDecodedAndInvalidEncodingIsAClientError",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.dateCanBeLeapDayOrClearedAndCvCanBeDetached",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ApplicationApiTest.invalidFieldsDoNotWritePartialRecords",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.uploadUrlExpiresAndPendingMetadataDoesNotAppearInTheLibrary",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.generatedDocxCanBeRetrievedWithSourceAndApplicationReferences",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.rejectsMissingExpiredSizeMismatchedAndMimeMismatchedUploadsWithoutCreatingCv",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.scannedCorruptUnsupportedAndTooShortDocumentsFailClearly",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.extractsActualTxtPdfAndDocxDocumentsIncludingDocxTables",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.rejectsUnsupportedEmptyOversizedAndOverlongNamesBeforeCreatingRecords",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.allowlistedFormatsUploadCompleteListAndDownloadPrivately(String)[1]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.allowlistedFormatsUploadCompleteListAndDownloadPrivately(String)[2]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.CvServiceTest.allowlistedFormatsUploadCompleteListAndDownloadPrivately(String)[3]",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.DashboardTest.dashboardPersistsAccountAndShowsAllFourRequiredCategories",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.DashboardTest.rejectsDashboardWithoutVerifiedIdentity",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.DashboardTest.dashboardSeparatesUsersAndRecordTypes",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.DashboardTest.newHandlerUsesPersistedProfileBetweenSessions",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.DashboardTest.failedProfileBootstrapDoesNotPersistPartialAccount",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.DashboardTest.profileRouteReturnsSamePersistedAccount",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.RepositoryTest.callerDataCannotOverwriteOwnershipKeysAndTtlIsNumeric",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.RepositoryTest.allPagesAreReturnedWithoutCrossingUserOrRecordTypeBoundaries",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.TailoringTest.expiredRunningJobCanBeRetriedRatherThanStayingPendingForever",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.TailoringTest.workerFailuresAreVisibleAndDoNotCreatePartialCvRecords",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.TailoringTest.billingFailureIsReadableThroughTheJobWithoutCreatingATailoredCv",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.TailoringTest.handlerStartsWith202AndExposesOnlyTheOwnersJob",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.TailoringTest.workerProducesRealDocxAndDuplicateDeliveryDoesNotRepeatAiCall",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.TailoringTest.queuesWithoutBlockingAndKeepsPrivateTextOutOfInvocation",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.TailoringTest.readsBothPlainTextAndAwsConsoleJsonSecretsWithoutLeakingInvalidValues",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.TailoringTest.enqueueFailureDoesNotLeaveAQueuedJob",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ValidationTest.requiresValidDate",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ValidationTest.validatesStatuses",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ValidationTest.enforcesCvFormat",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "app.tracker.ValidationTest.rejectsBadUrls",
+      "status": "PASS",
+      "layer": "backend"
+    },
+    {
+      "test": "com.interntrack.DemoRepositoryTest.rejectsInvalidApplicationValuesWithoutSavingThem",
+      "status": "PASS",
+      "layer": "android_unit"
+    },
+    {
+      "test": "com.interntrack.DemoRepositoryTest.deletedExampleDoesNotReappearAfterRestart",
+      "status": "PASS",
+      "layer": "android_unit"
+    },
+    {
+      "test": "com.interntrack.DemoRepositoryTest.incompleteAndOversizeCvImportsLeaveNoFilesOrMetadata",
+      "status": "PASS",
+      "layer": "android_unit"
+    },
+    {
+      "test": "com.interntrack.DemoRepositoryTest.applicationChangesSurviveFreshRepositoryInstances",
+      "status": "PASS",
+      "layer": "android_unit"
+    },
+    {
+      "test": "com.interntrack.DemoRepositoryTest.importedCvCanBeReopenedExportedAndAttached",
+      "status": "PASS",
+      "layer": "android_unit"
+    },
+    {
+      "test": "com.interntrack.DemoRepositoryTest.tailoringDoesNotPretendToGenerateAnOfflineAiResult",
+      "status": "PASS",
+      "layer": "android_unit"
+    },
+    {
+      "test": "com.interntrack.DemoRepositoryTest.simultaneousActivityWritesAreRetained",
+      "status": "PASS",
+      "layer": "android_unit"
+    },
+    {
+      "test": "test_android_runner.AndroidResultParserTest.test_failure_is_not_hidden_by_adb_success_exit",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_android_runner.AndroidResultParserTest.test_ignored_tests_are_never_counted_as_passes",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_android_runner.AndroidResultParserTest.test_pass_requires_actual_completed_tests_and_matching_count",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_android_runner.AndroidResultParserTest.test_runner_crash_is_not_a_successful_empty_suite",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_android_runner.AndroidResultParserTest.test_start_events_are_not_double_counted",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.AndroidConfigurationTest.test_missing_outputs_leave_the_original_file_untouched",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.AndroidConfigurationTest.test_repeated_configuration_does_not_duplicate_settings",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.AndroidConfigurationTest.test_updates_existing_values_and_adds_missing_settings",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.SecretConfigurationTest.test_empty_key_is_not_sent_to_aws",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.SecretConfigurationTest.test_failure_hides_provider_input_and_deletes_the_file",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.SecretConfigurationTest.test_noninteractive_key_entry_is_rejected",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.SecretConfigurationTest.test_private_json_transport_and_cleanup_on_success",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.SecretConfigurationTest.test_transport_exception_also_removes_the_temporary_file",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_deployment_helpers.SecretConfigurationTest.test_wrong_account_is_rejected_before_prompting_for_the_key",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_suite_runner.SuiteReportTest.test_command_failure_cannot_be_hidden_by_missing_or_stale_results",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_suite_runner.SuiteReportTest.test_junit_failures_errors_and_skips_keep_their_actual_status",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_suite_runner.SuiteReportTest.test_missing_evidence_is_never_reported_as_all_passing",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "test": "test_suite_runner.SuiteReportTest.test_python_failures_are_not_counted_as_passing_tests",
+      "status": "PASS",
+      "layer": "python_helpers"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "encryptedSessionSurvivesANewStoreInstance",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "tamperingFailsClosedAndRemovesTheCorruptedSession",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "cancelledLoginDoesNotAuthorizeTheApp",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "malformedAndTruncatedCiphertextsFailClosed",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "freshTokensPersistAndSignOutClearsThem",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "signInRequestsPkceStateAndTheCorrectCallback",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "invalidSerializedAuthStateIsDiscarded",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "repeatedWritesUseDifferentCiphertexts",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.SessionSecurityTest",
+      "test": "loggedOutRequestsAreRejectedWithoutANetworkCall",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.PresentationTest",
+      "test": "datesAndDocumentSizesAreReadable",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.PresentationTest",
+      "test": "statusBadgesKeepTheirRequiredDistinctColoursAndLabels",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.OnlineGatingTest",
+      "test": "cvLibraryRequiresSignIn",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.OnlineGatingTest",
+      "test": "newApplicationRequiresSignIn",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.OnlineGatingTest",
+      "test": "accountOffersSignInAndDoesNotRevealPrivateData",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.OnlineGatingTest",
+      "test": "onlineApkContainsRealHttpsServiceSettings",
+      "status": "PASS",
+      "layer": "android_online"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "unsupportedPickerResultsAreNotImported",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "libraryImportsAndExportsAnActualDocumentThroughPickerResults",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "internshipLinkOpensTheStoredHttpsUrl",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "bottomNavigationAccountAndBundledTipsWork",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "cancelledFilePickerKeepsTheLibraryUsable",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "overviewNavigationReturnsToTheTop",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "refreshRetrievesNewlyStoredApplications",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "oversizedPickerResultsAreNotImported",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "changingStatusUpdatesTheDashboardCounters",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "cvCanBeSelectedAndAttachedInTheApplicationEditor",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "datePickerFormatsJanuaryAndSingleDigitDays",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "cancellingDateSelectionPreservesTheExistingDate",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "dashboardShowsAccountCountersAndAllStatusFilters",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "missingRequiredFieldsDoNotCreateAnApplication",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "deleteRequiresConfirmationAndRemovesOnlyTheApplication",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "clearDateAndEditNotesPersistOnSave",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "createsAnApplicationThroughTheEditorAndRetainsItAfterReopening",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.DemoUiTest",
+      "test": "offlineAiExplainsItsLimitationWithoutGeneratingAFakeCv",
+      "status": "PASS",
+      "layer": "android_demo"
+    },
+    {
+      "class": "com.interntrack.AsyncTailoringUiTest",
+      "test": "failedJobExplainsTheCauseAndClearsPendingState",
+      "status": "PASS",
+      "layer": "android_async_controlled"
+    },
+    {
+      "class": "com.interntrack.AsyncTailoringUiTest",
+      "test": "reviewedResultIsAttachedOnlyOnConfirmation",
+      "status": "PASS",
+      "layer": "android_async_controlled"
+    },
+    {
+      "class": "com.interntrack.AsyncTailoringUiTest",
+      "test": "networkFailureRetainsTheJobAndManualStatusCheckDoesNotStartAnother",
+      "status": "PASS",
+      "layer": "android_async_controlled"
+    },
+    {
+      "class": "com.interntrack.AsyncTailoringUiTest",
+      "test": "pendingJobDisablesActionsAndResumesAfterActivityRecreation",
+      "status": "PASS",
+      "layer": "android_async_controlled"
+    },
+    {
+      "class": "com.interntrack.AsyncTailoringUiTest",
+      "test": "completedJobShowsAReviewPreviewBeforeAttachment",
+      "status": "PASS",
+      "layer": "android_async_controlled"
+    },
+    {
+      "class": "com.interntrack.AsyncTailoringUiTest",
+      "test": "downloadOpensTheReturnedDocumentUrl",
+      "status": "PASS",
+      "layer": "android_async_controlled"
+    },
+    {
+      "class": "com.interntrack.AsyncTailoringUiTest",
+      "test": "savingWhileTheCvLibraryIsUnavailableKeepsTheSubmittedCv",
+      "status": "PASS",
+      "layer": "android_async_controlled"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_ai_job_is_async_isolated_and_failure_preserves_the_source",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_api_gateway_rejects_unauthenticated_and_invalid_tokens",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_application_crud_dashboard_and_dynamodb_persistence",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_cloudfront_serves_tips_from_the_private_asset_origin",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_cognito_pkce_profile_and_refresh_session",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_cross_account_application_and_cv_access_is_denied",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_cv_validation_and_upload_completion_are_enforced",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_every_application_status_and_optional_date",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_invalid_application_input_is_rejected",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_private_cv_upload_download_and_library_for_all_formats",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_real_ai_docx_generation_download_and_attachment",
+      "status": "BLOCKED",
+      "reason": "BLOCKED: AI tailoring is unavailable because the app has no OpenAI API credits. The app owner needs to add credits.",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_signup_email_delivery_and_user_confirmation",
+      "status": "NOT_RUN",
+      "reason": "MANUAL: Requires an authorized recipient inbox and its verification code; no test email is sent",
+      "layer": "live_aws"
+    },
+    {
+      "test": "__main__.LiveFeatures.test_signup_form_and_email_verification_configuration",
+      "status": "PASS",
+      "layer": "live_aws"
+    },
+    {
+      "class": "com.interntrack.LiveClientTest",
+      "test": "nativeAppAuthRefreshesTheCognitoToken",
+      "status": "PASS",
+      "layer": "android_live"
+    },
+    {
+      "class": "com.interntrack.LiveClientTest",
+      "test": "nativeClientLoadsCloudFrontTips",
+      "status": "PASS",
+      "layer": "android_live"
+    },
+    {
+      "class": "com.interntrack.LiveClientTest",
+      "test": "onlineLibraryOpensTheSelectedPrivateCvInAViewer",
+      "status": "PASS",
+      "layer": "android_live"
+    },
+    {
+      "class": "com.interntrack.LiveClientTest",
+      "test": "nativeClientUploadsDownloadsAndAttachesACvToAnApplication",
+      "status": "PASS",
+      "layer": "android_live"
+    },
+    {
+      "class": "com.interntrack.LiveClientTest",
+      "test": "nativeDashboardLoadsTheRealDynamoDbAccount",
+      "status": "PASS",
+      "layer": "android_live"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Internship Application Tracker - Java Android, Cognito, API Gateway, Lambda, DynamoDB, S3 and CloudFront
+
+Parameters:
+  AuthDomainPrefix:
+    Type: String
+    Description: Globally unique, lowercase Cognito Hosted UI domain prefix
+    AllowedPattern: '^[a-z0-9][a-z0-9-]{4,60}[a-z0-9]$'
+  OpenAISecretArn:
+    Type: String
+    Description: ARN of existing Secrets Manager secret containing OpenAI API key as plain text
+  OpenAIModel:
+    Type: String
+    Default: gpt-5-mini
+  AllowedCallbackUrl:
+    Type: String
+    Default: interntrack://oauth2redirect
+
+Globals:
+  Function:
+    Runtime: java21
+    Architectures: [arm64]
+    MemorySize: 1024
+    Timeout: 90
+    Tracing: Active
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref TrackerTable
+        CV_BUCKET_NAME: !Ref PrivateCvBucket
+        OPENAI_SECRET_ARN: !Ref OpenAISecretArn
+        OPENAI_MODEL: !Ref OpenAIModel
+
+Resources:
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: !Sub '${AWS::StackName}-users'
+      UsernameAttributes: [email]
+      AutoVerifiedAttributes: [email]
+      UserAttributeUpdateSettings:
+        AttributesRequireVerificationBeforeUpdate: [email]
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 10
+          RequireLowercase: true
+          RequireUppercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: false
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: AndroidPublicClient
+      UserPoolId: !Ref UserPool
+      GenerateSecret: false
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthFlows: [code]
+      AllowedOAuthScopes: [openid, email, profile, aws.cognito.signin.user.admin]
+      SupportedIdentityProviders: [COGNITO]
+      CallbackURLs: [!Ref AllowedCallbackUrl]
+      LogoutURLs: [!Ref AllowedCallbackUrl]
+      PreventUserExistenceErrors: ENABLED
+      EnableTokenRevocation: true
+  UserPoolDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      Domain: !Ref AuthDomainPrefix
+      UserPoolId: !Ref UserPool
+
+  TrackerTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+
+  PrivateCvBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
+      LifecycleConfiguration:
+        Rules:
+          - Id: AbortIncompleteUploads
+            Status: Enabled
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+  PrivateCvBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref PrivateCvBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: EnforceTLS
+            Effect: Deny
+            Principal: '*'
+            Action: 's3:*'
+            Resource:
+              - !GetAtt PrivateCvBucket.Arn
+              - !Sub '${PrivateCvBucket.Arn}/*'
+            Condition:
+              Bool:
+                'aws:SecureTransport': 'false'
+
+  AssetBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+  AssetOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-asset-oac'
+        Description: Restricts S3 asset origin to CloudFront
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+  AssetDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: Public static application tips only, never user CVs
+        Origins:
+          - Id: asset-origin
+            DomainName: !GetAtt AssetBucket.RegionalDomainName
+            OriginAccessControlId: !Ref AssetOriginAccessControl
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        DefaultCacheBehavior:
+          TargetOriginId: asset-origin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD]
+          CachedMethods: [GET, HEAD]
+          Compress: true
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        HttpVersion: http2
+        PriceClass: PriceClass_100
+  AssetBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref AssetBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowCloudFrontRead
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub '${AssetBucket.Arn}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${AssetDistribution}'
+          - Sid: EnforceTLS
+            Effect: Deny
+            Principal: '*'
+            Action: s3:*
+            Resource:
+              - !GetAtt AssetBucket.Arn
+              - !Sub '${AssetBucket.Arn}/*'
+            Condition:
+              Bool:
+                'aws:SecureTransport': 'false'
+
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: '$default'
+      Auth:
+        DefaultAuthorizer: CognitoJwt
+        Authorizers:
+          CognitoJwt:
+            IdentitySource: '$request.header.Authorization'
+            JwtConfiguration:
+              issuer: !Sub 'https://cognito-idp.${AWS::Region}.amazonaws.com/${UserPool}'
+              audience: [!Ref UserPoolClient]
+
+  TrackerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.tracker.Handler::handleRequest
+      CodeUri: ../backend
+      Environment:
+        Variables:
+          TAILOR_WORKER_NAME: !Ref TailorWorker
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TrackerTable
+        - S3CrudPolicy:
+            BucketName: !Ref PrivateCvBucket
+        - Statement:
+            - Effect: Allow
+              Action: lambda:InvokeFunction
+              Resource: !GetAtt TailorWorker.Arn
+      Events:
+        AllRoutes:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /{proxy+}
+            Method: ANY
+            PayloadFormatVersion: '2.0'
+
+  TailorWorker:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.tracker.TailorWorker::handleRequest
+      CodeUri: ../backend
+      Timeout: 180
+      EventInvokeConfig:
+        MaximumRetryAttempts: 0
+        MaximumEventAgeInSeconds: 300
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TrackerTable
+        - S3CrudPolicy:
+            BucketName: !Ref PrivateCvBucket
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: !Ref OpenAISecretArn
+
+Outputs:
+  ApiBaseUrl:
+    Value: !Sub 'https://${HttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}'
+  CognitoClientId:
+    Value: !Ref UserPoolClient
+  CognitoHostedUiBase:
+    Value: !Sub 'https://${AuthDomainPrefix}.auth.${AWS::Region}.amazoncognito.com'
+  CloudFrontAssetsUrl:
+    Value: !Sub 'https://${AssetDistribution.DomainName}'
+  AssetBucketName:
+    Value: !Ref AssetBucket
+  CvBucketName:
+    Value: !Ref PrivateCvBucket
+  UserPoolId:
+    Value: !Ref UserPool
+  TrackerTableName:
+    Value: !Ref TrackerTable
+  ApiFunctionName:
+    Value: !Ref TrackerFunction
+  TailorWorkerName:
+    Value: !Ref TailorWorker
+  CloudFrontDistributionId:
+    Value: !Ref AssetDistribution

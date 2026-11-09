@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Installed only in the test APK. It exposes synthetic fixtures, never app data. -->
+        <provider android:name="com.interntrack.FixtureProvider" android:authorities="${applicationId}.fixtures" android:exported="true" />
+    </application>
+</manifest>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="360dp" android:height="800dp"
+    android:viewportWidth="360" android:viewportHeight="800">
+    <path android:pathData="M0,0 H360 V800 H0 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear" android:startX="0" android:startY="0"
+                android:endX="220" android:endY="800">
+                <item android:offset="0" android:color="@color/background_top" />
+                <item android:offset="0.48" android:color="#F4F3FC" />
+                <item android:offset="1" android:color="@color/background_bottom" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:fillColor="#DDE5FF" android:fillAlpha="0.55"
+        android:pathData="M510,55 A175,175 0,1 1,160 55 A175,175 0,1 1,510 55 Z" />
+    <path android:fillColor="#E2F2F1" android:fillAlpha="0.6"
+        android:pathData="M85,225 A125,125 0,1 1,-165 225 A125,125 0,1 1,85 225 Z" />
+    <path android:fillColor="#E8E7FA" android:fillAlpha="0.65"
+        android:pathData="M0,650 C85,560 160,580 215,675 C258,750 315,765 360,730 V800 H0 Z" />
+    <path android:fillColor="@android:color/transparent" android:strokeColor="#C4D2F5"
+        android:strokeWidth="0.9" android:strokeAlpha="0.6"
+        android:pathData="M141,0 C130,102 209,187 360,205 M119,0 C105,130 214,219 360,228" />
+    <path android:fillColor="@android:color/transparent" android:strokeColor="#D6DAEF"
+        android:strokeWidth="0.8" android:strokeAlpha="0.65"
+        android:pathData="M0,695 C105,602 159,669 205,744 C230,783 268,806 305,816" />
+    <path android:fillColor="#A4B6DF" android:fillAlpha="0.34"
+        android:pathData="M344,330 A1.5,1.5 0,1 1,341 330 A1.5,1.5 0,1 1,344 330 Z M356,330 A1.5,1.5 0,1 1,353 330 A1.5,1.5 0,1 1,356 330 Z M344,342 A1.5,1.5 0,1 1,341 342 A1.5,1.5 0,1 1,344 342 Z M356,342 A1.5,1.5 0,1 1,353 342 A1.5,1.5 0,1 1,356 342 Z M344,354 A1.5,1.5 0,1 1,341 354 A1.5,1.5 0,1 1,344 354 Z M356,354 A1.5,1.5 0,1 1,353 354 A1.5,1.5 0,1 1,356 354 Z M11,510 A1.5,1.5 0,1 1,8 510 A1.5,1.5 0,1 1,11 510 Z M23,510 A1.5,1.5 0,1 1,20 510 A1.5,1.5 0,1 1,23 510 Z M11,522 A1.5,1.5 0,1 1,8 522 A1.5,1.5 0,1 1,11 522 Z M23,522 A1.5,1.5 0,1 1,20 522 A1.5,1.5 0,1 1,23 522 Z M11,534 A1.5,1.5 0,1 1,8 534 A1.5,1.5 0,1 1,11 534 Z M23,534 A1.5,1.5 0,1 1,20 534 A1.5,1.5 0,1 1,23 534 Z" />
+</vector>

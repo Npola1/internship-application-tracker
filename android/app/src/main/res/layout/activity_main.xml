@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/screen_background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="76dp"
+        android:paddingHorizontal="22dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <ImageView android:layout_width="40dp" android:layout_height="40dp" android:src="@mipmap/ic_launcher"
+            android:importantForAccessibility="no"/>
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+            android:layout_marginStart="12dp" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Interntrack"
+                android:textSize="21sp" android:fontFamily="sans-serif-medium" android:textColor="@color/ink"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="YOUR CAREER WORKSPACE"
+                style="@style/Eyebrow" android:textSize="9sp" android:layout_marginTop="2dp"/>
+        </LinearLayout>
+        <Button android:id="@+id/refreshButton" style="@style/TextButton" android:layout_width="48dp" android:layout_height="48dp"
+            android:drawableStart="@drawable/ic_refresh" android:padding="14dp" android:contentDescription="Refresh dashboard"/>
+    </LinearLayout>
+    <ScrollView android:id="@+id/dashboardScroll" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:fillViewport="true" android:clipToPadding="false" android:scrollbars="none">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            android:paddingHorizontal="22dp" android:paddingTop="6dp" android:paddingBottom="24dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                android:background="@drawable/hero_background" android:padding="20dp">
+                <TextView android:id="@+id/serviceBanner" style="@style/DemoBanner" android:background="@drawable/hero_badge"
+                    android:text="Online service not connected" android:textColor="#E6EEFF" android:layout_marginBottom="12dp"/>
+                <TextView android:id="@+id/demoBanner" style="@style/DemoBanner" android:background="@drawable/hero_badge"
+                    android:textColor="#E6EEFF" android:layout_marginBottom="12dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="APPLICATION OVERVIEW"
+                    style="@style/Eyebrow" android:textColor="#C7D7FF"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Your next opportunity."
+                    android:fontFamily="sans-serif-medium" android:textSize="26sp" android:textColor="@color/white" android:layout_marginTop="7dp"/>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Keep every application moving forward."
+                    android:textColor="#E0E8FF" android:textSize="13sp" android:layout_marginTop="5dp"/>
+                <TextView android:id="@+id/accountDetails" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Sign in to your workspace" android:textColor="#E0E8FF" android:textSize="12sp"
+                    android:layout_marginTop="14dp" android:textIsSelectable="true"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="88dp" android:layout_marginTop="18dp"
+                android:orientation="horizontal" android:baselineAligned="false">
+                <TextView android:id="@+id/countTotal" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
+                    android:background="@drawable/card_bg" android:text="0
+Total" android:textColor="@color/ink" android:gravity="center" android:textSize="14sp"/>
+                <TextView android:id="@+id/countInterview" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
+                    android:layout_marginHorizontal="9dp" android:background="@drawable/card_bg" android:text="0
+Interviews"
+                    android:textColor="@color/ink" android:gravity="center" android:textSize="14sp"/>
+                <TextView android:id="@+id/countOffers" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
+                    android:background="@drawable/card_bg" android:text="0
+Offers" android:textColor="@color/ink" android:gravity="center" android:textSize="14sp"/>
+            </LinearLayout>
+            <Button android:id="@+id/newApplicationButton" style="@style/PrimaryButton" android:layout_width="match_parent" android:layout_height="52dp"
+                android:layout_marginTop="18dp" android:text="New application" android:drawableStart="@drawable/ic_add"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+                android:gravity="center_vertical" android:layout_marginTop="22dp">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Applications"
+                    style="@style/SectionHeading" android:layout_marginEnd="8dp"/>
+                <Spinner android:id="@+id/filterStatus" style="@style/TrackerSpinner" android:layout_width="158dp" android:layout_marginTop="0dp"/>
+            </LinearLayout>
+            <ProgressBar android:id="@+id/loading" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent"
+                android:layout_height="3dp" android:layout_marginTop="8dp" android:indeterminate="true" android:visibility="gone"/>
+            <LinearLayout android:id="@+id/applicationsContainer" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="14dp" android:orientation="vertical"/>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="72dp" android:orientation="horizontal"
+        android:background="@drawable/bottom_nav" android:paddingHorizontal="14dp" android:paddingVertical="7dp" android:baselineAligned="false">
+        <Button android:id="@+id/overviewButton" style="@style/NavButton" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="match_parent" android:text="Overview" android:drawableTop="@drawable/ic_overview"
+            android:textColor="@color/primary" android:drawableTint="@color/primary" android:background="@drawable/nav_active"/>
+        <Button android:id="@+id/cvLibraryButton" style="@style/NavButton" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="match_parent" android:text="CV library" android:drawableTop="@drawable/ic_document" android:layout_marginStart="6dp"/>
+        <Button android:id="@+id/accountButton" style="@style/NavButton" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="match_parent" android:text="Account" android:drawableTop="@drawable/ic_account" android:layout_marginStart="6dp"/>
+    </LinearLayout>
+</LinearLayout>

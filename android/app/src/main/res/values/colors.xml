@@ -1,0 +1,23 @@
+<resources>
+    <color name="background">#F5F7FB</color>
+    <color name="ink">#142239</color>
+    <color name="muted">#56647B</color>
+    <color name="primary">#2549D8</color>
+    <color name="primaryDark">#1737BA</color>
+    <color name="outline">#DFE5EF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background_top">#EAF1FF</color>
+    <color name="background_bottom">#F7F9FD</color>
+    <color name="status_blue_background">#EAF0FF</color>
+    <color name="status_rejected">#B91C1C</color>
+    <color name="status_rejected_background">#FEE2E2</color>
+    <color name="status_offer">#15803D</color>
+    <color name="status_offer_background">#DCFCE7</color>
+    <color name="status_interview">#795500</color>
+    <color name="status_interview_background">#FFF0A3</color>
+    <color name="status_interview_accent">#EAB308</color>
+    <color name="status_withdrawn">#4B5563</color>
+    <color name="status_withdrawn_background">#E5E7EB</color>
+    <color name="status_assessment">#C2410C</color>
+    <color name="status_assessment_background">#FFEDD5</color>
+</resources>

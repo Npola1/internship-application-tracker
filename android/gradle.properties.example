@@ -1,0 +1,7 @@
+org.gradle.jvmargs=-Xmx2g -Dfile.encoding=UTF-8
+android.useAndroidX=true
+# Deployment-specific public settings are supplied locally or by scripts/deploy.sh.
+trackerApiUrl=REPLACE
+trackerCognitoDomain=REPLACE
+trackerCognitoClientId=REPLACE
+trackerAssetBaseUrl=REPLACE
