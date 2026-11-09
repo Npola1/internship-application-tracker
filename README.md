@@ -1,4 +1,4 @@
-# InternTrack
+# Internship Application Tracker
 
 A Java Android app that helps students manage internship applications and tailor CVs to job opportunities using OpenAI. The dashboard brings together application details, links, statuses, submitted CVs and account information.
 

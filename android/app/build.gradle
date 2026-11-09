@@ -12,7 +12,7 @@ android {
         versionName '1.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         manifestPlaceholders = [appAuthRedirectScheme: 'interntrack']
-        resValue 'string', 'app_name', 'InternTrack'
+        resValue 'string', 'app_name', 'Internship Application Tracker'
         buildConfigField 'boolean', 'DEMO_MODE', 'false'
         buildConfigField 'String', 'API_URL', '"' + configValue('trackerApiUrl') + '"'
         buildConfigField 'String', 'COGNITO_DOMAIN', '"' + configValue('trackerCognitoDomain') + '"'
@@ -24,7 +24,7 @@ android {
             initWith debug
             applicationIdSuffix '.demo'
             versionNameSuffix '-demo'
-            resValue 'string', 'app_name', 'InternTrack Demo'
+            resValue 'string', 'app_name', 'Internship Application Tracker Demo'
             buildConfigField 'boolean', 'DEMO_MODE', 'true'
             matchingFallbacks = ['debug']
         }

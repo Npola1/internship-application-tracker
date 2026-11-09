@@ -98,7 +98,7 @@ public final class MainActivity extends Activity {
     private void askSignIn() {
         accountButton.setText("Sign in");
         if (!AuthManager.isConfigured()) { showServiceUnavailable(); return; }
-        new AlertDialog.Builder(this).setTitle("Sign in to InternTrack")
+        new AlertDialog.Builder(this).setTitle(R.string.sign_in_title)
                 .setMessage("Use your account to keep applications and CVs private. You can also create an account in the sign-in page.")
                 .setNegativeButton("Later", (d, w) -> render())
                 .setPositiveButton("Continue", (d, w) -> {
@@ -112,7 +112,7 @@ public final class MainActivity extends Activity {
     }
     private void showServiceUnavailable() {
         new AlertDialog.Builder(this).setTitle("Online service not connected")
-                .setMessage("Sign-in, application tracking and your CV library need the connected online service. It hasn't been set up for this build yet.\n\nYou can use InternTrack Demo to manage applications and CVs on this phone without signing in.")
+                .setMessage(R.string.service_unavailable_message)
                 .setNegativeButton("Close", null)
                 .setPositiveButton("Open offline demo", (d, w) -> openDemo()).show();
     }
@@ -122,8 +122,8 @@ public final class MainActivity extends Activity {
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
         try { startActivity(intent); }
         catch (ActivityNotFoundException ex) {
-            new AlertDialog.Builder(this).setTitle("Install InternTrack Demo")
-                    .setMessage("The offline demo isn't installed on this phone. Install InternTrack Demo, then open it to try application tracking and CV management without signing in.")
+            new AlertDialog.Builder(this).setTitle(R.string.install_demo_title)
+                    .setMessage(R.string.demo_not_installed_message)
                     .setPositiveButton("OK", null).show();
         }
     }

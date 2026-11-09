@@ -1,0 +1,7 @@
+<resources>
+    <string name="product_name">Internship Application Tracker</string>
+    <string name="sign_in_title">Sign in to Internship Application Tracker</string>
+    <string name="service_unavailable_message">Sign-in, application tracking and your CV library need the connected online service. It hasn\'t been set up for this build yet.\n\nYou can use Internship Application Tracker Demo to manage applications and CVs on this phone without signing in.</string>
+    <string name="install_demo_title">Install Internship Application Tracker Demo</string>
+    <string name="demo_not_installed_message">The offline demo isn\'t installed on this phone. Install Internship Application Tracker Demo, then open it to try application tracking and CV management without signing in.</string>
+</resources>

@@ -82,7 +82,7 @@ def main():
                       'scope': 'openid email profile aws.cognito.signin.user.admin', 'state': state,
                       'code_challenge_method': 'S256', 'code_challenge': challenge}
         browser = requests.Session()
-        browser.headers['User-Agent'] = 'Mozilla/5.0 InternTrackDeploymentVerification'
+        browser.headers['User-Agent'] = 'Mozilla/5.0 InternshipApplicationTrackerDeploymentVerification'
         page = browser.get(domain + '/oauth2/authorize', params=parameters, timeout=30)
         page.raise_for_status()
         forms = Forms()
